@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void flush()
-{
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
+
 
 
 int main(){
@@ -46,7 +42,6 @@ int main(){
         printf("4. Delete Contact\n");
         printf("5. Exit\n");
         printf("Choose an option: ");
-        fflush(stdin);
         scanf("\n%c", &choice);
         switch(choice){
             case '1':
@@ -55,7 +50,6 @@ int main(){
 
                 another = 'y';
                 while(another == 'y'){
-                    flush();
                     printf("\nEnter name: ");
                     fgets(c.name, 40, stdin);
                     printf("\nEnter Phone number: ");
@@ -63,7 +57,6 @@ int main(){
                     fwrite(&c,recsize,1,fp);
 
                     printf("\nAdd another contact(y/n) ");
-                    fflush(stdin);
                     scanf("\n%c", &another);
                 }
                 break;
@@ -92,7 +85,6 @@ int main(){
                         }
                     }
                     printf("\nModify another contact(y/n)");
-                    fflush(stdin);
                     scanf("\n%c", &another);
                 }
                 break;
@@ -100,7 +92,6 @@ int main(){
                 system("clear");
                 another = 'y';
                 while(another == 'y'){
-                    flush();
                     printf("\nEnter name of contact to delete: ");
                     fgets(conname,40, stdin);
                     ft = fopen("Temp.dat","wb");
@@ -116,7 +107,6 @@ int main(){
                     rename("Temp.dat","CON.DAT");
                     fp = fopen("CON.DAT", "rb+");
                     printf("Delete another contact(y/n)");
-                    fflush(stdin);
                     scanf("\n%c", &another);
                 }
                 break;
