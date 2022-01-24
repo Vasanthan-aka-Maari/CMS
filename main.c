@@ -26,9 +26,9 @@ int main(){
     long int recsize;
 
 
-    fp = fopen("EMP.DAT","rb+");
+    fp = fopen("CON.DAT","rb+");
     if(fp == NULL){
-        fp = fopen("EMP.DAT","wb+");
+        fp = fopen("CON.DAT","wb+");
         if(fp == NULL){
             printf("Cannot open file");
             exit(1);
@@ -112,9 +112,9 @@ int main(){
                     }
                     fclose(fp);
                     fclose(ft);
-                    remove("EMP.DAT");
-                    rename("Temp.dat","EMP.DAT");
-                    fp = fopen("EMP.DAT", "rb+");
+                    remove("CON.DAT");
+                    rename("Temp.dat","CON.DAT");
+                    fp = fopen("CON.DAT", "rb+");
                     printf("Delete another contact(y/n)");
                     fflush(stdin);
                     scanf("\n%c", &another);
